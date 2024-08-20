@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respond to Grievance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Respond to Grievance</h1>
+    <form method="POST" action="{{ url_for('respond_grievance', grievance_id=grievance.id) }}">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{ grievance.title }}" disabled>
+        <br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" disabled>{{ grievance.description }}</textarea>
+        <br>
+        <label for="response">Response:</label>
+        <textarea id="response" name="response" required></textarea>
+        <br>
+        <button type="submit">Submit Response</button>
+    </form>
+</body>
+</html>

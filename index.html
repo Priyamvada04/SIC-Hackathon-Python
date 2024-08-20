@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Grievance Redressal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Grievance Redressal Portal</h1>
+        <h2>Departments:</h2>
+        <div class="department-boxes">
+            <div class="department-box">
+                <a href="{{ url_for('department', department_name='Health') }}">
+                    <h3>Health Department</h3>
+                </a>
+            </div>
+            <div class="department-box">
+                <a href="{{ url_for('department', department_name='Public Works') }}">
+                    <h3>Public Works Department</h3>
+                </a>
+            </div>
+            <div class="department-box">
+                <a href="{{ url_for('department', department_name='Water Supply') }}">
+                    <h3>Water Supply Board</h3>
+                </a>
+            </div>
+            <div class="department-box">
+                <a href="{{ url_for('department', department_name='Electricity') }}">
+                    <h3>Electricity Board</h3>
+                </a>
+            </div>
+            <div class="department-box">
+                <a href="{{ url_for('department', department_name='Revenue') }}">
+                    <h3>Revenue Department</h3>
+                </a>
+            </div>
+            <div class="department-box">
+                <a href="{{ url_for('department', department_name='Education') }}">
+                    <h3>Education Department</h3>
+                </a>
+            </div>
+        </div>
+        <div class="real-time">
+            <p id="real-time-clock"></p>
+        </div>
+    </div>
+
+    <script>
+        function updateClock() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            document.getElementById('real-time-clock').innerHTML = 'Current Time: ' + hours + ':' + minutes + ':' + seconds;
+        }
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>
